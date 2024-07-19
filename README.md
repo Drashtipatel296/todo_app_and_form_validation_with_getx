@@ -1,4 +1,4 @@
-# Minimal To-Do App
+# To-Do App
 
 Efficient to-do app built with Flutter using GetX for state management. This app allows users to create, read, update, and delete tasks with ease. 
 
