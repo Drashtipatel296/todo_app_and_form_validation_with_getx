@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:todo_app_with_getx/view/splash/splash_screen.dart';
 import 'view/home/bottomnavigationbar_screen.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class TODOApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BottomNavigationScreen(),
+      home: SplashScreen(),
     );
   }
 }

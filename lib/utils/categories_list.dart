@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 List categoriesList = [
   {
     'name' : 'Work',
-    'color' : Colors.blue.shade200,
+    'color' : const Color(0xff8CA8FE),
     'icon' : Icons.work,
   },
   {

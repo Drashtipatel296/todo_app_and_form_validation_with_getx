@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todo_app_with_getx/controller/todo_controller.dart';
@@ -11,7 +10,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.grey.shade50),);
     final TodoController todoController = Get.put(TodoController());
 
     return Padding(
@@ -21,8 +19,18 @@ class HomePage extends StatelessWidget {
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Good Morning 👋',style: GoogleFonts.poppins(fontWeight: FontWeight.w500,fontSize: 18),),
-              Text('Drashti Patel',style: GoogleFonts.poppins(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.grey),),
+              Text(
+                'Good Morning 👋',
+                style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w500, fontSize: 18),
+              ),
+              Text(
+                'Drashti Patel',
+                style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                    color: Colors.grey),
+              ),
             ],
           ),
           leading: const Icon(Icons.menu),
@@ -44,7 +52,7 @@ class HomePage extends StatelessWidget {
             ),
           ],
         ),
-        body:  SingleChildScrollView(
+        body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(top: 10, right: 15, left: 15),
             child: Column(
@@ -105,32 +113,49 @@ class HomePage extends StatelessWidget {
                     () => ListView.builder(
                       shrinkWrap: true,
                       itemCount: todoController.tasksList.length,
-                      itemBuilder: (context, index) => Card(
-                        child: ListTile(
-                          leading: Checkbox(
-                            onChanged: (value) {
-                              todoController.toggleTask(index);
-                            }, value: todoController.tasksList[index].completed,
-                            shape: const CircleBorder(),
-                            activeColor: Colors.blue.shade300,
-                          ),
-                          title: Text(todoController.tasksList[index].name,style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500),),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IconButton(
-                                onPressed: () {
-                                  _showUpdateDialog(context, todoController, index);
-                                },
-                                icon: const Icon(Icons.edit, size: 19,),
-                              ),
-                              IconButton(
-                                onPressed: () {
-                                  todoController.removeFromList(index);
-                                },
-                                icon: const Icon(CupertinoIcons.delete_solid, size: 19,),
-                              ),
-                            ],
+                      itemBuilder: (context, index) => Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: Card(
+                          child: ListTile(
+                            leading: Checkbox(
+                              onChanged: (value) {
+                                todoController.toggleTask(index);
+                              },
+                              value: todoController.tasksList[index].completed,
+                              activeColor: const Color(0xff8CA8FE),
+                            ),
+                            title: Text(
+                              todoController.tasksList[index].name,
+                              style: GoogleFonts.poppins(
+                                  decoration: todoController.tasksList[index].completed
+                                      ? TextDecoration.lineThrough
+                                      : TextDecoration.none,
+                                  fontSize: 16, fontWeight: FontWeight.w500),
+                            ),
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                IconButton(
+                                  onPressed: () {
+                                    _showUpdateDialog(
+                                        context, todoController, index);
+                                  },
+                                  icon: const Icon(
+                                    Icons.edit,
+                                    size: 19,
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: () {
+                                    todoController.removeFromList(index);
+                                  },
+                                  icon: const Icon(
+                                    CupertinoIcons.delete_solid,
+                                    size: 19,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -145,17 +170,19 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  void _showUpdateDialog(BuildContext context, TodoController todoController, int index) {
-    TextEditingController taskController = TextEditingController(text: todoController.tasksList[index].name);
+  void _showUpdateDialog(
+      BuildContext context, TodoController todoController, int index) {
+    TextEditingController taskController =
+        TextEditingController(text: todoController.tasksList[index].name);
 
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Update Task'),
+          title: const Text('Update Task'),
           content: TextField(
             controller: taskController,
-            decoration: InputDecoration(hintText: 'Enter new task name'),
+            decoration: const InputDecoration(hintText: 'Enter new task name'),
           ),
           actions: [
             TextButton(
@@ -163,13 +190,13 @@ class HomePage extends StatelessWidget {
                 todoController.updateTask(index, taskController.text);
                 Navigator.of(context).pop();
               },
-              child: Text('Update'),
+              child: const Text('Update'),
             ),
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
           ],
         );

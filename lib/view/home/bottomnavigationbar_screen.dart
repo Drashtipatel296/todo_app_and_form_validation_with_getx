@@ -63,7 +63,7 @@ class BottomNavigationScreen extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                  color: Colors.blue.shade200, shape: BoxShape.circle),
+                  color: const Color(0xff8CA8FE), shape: BoxShape.circle),
               child: const Icon(
                 Icons.add,
                 size: 40,
