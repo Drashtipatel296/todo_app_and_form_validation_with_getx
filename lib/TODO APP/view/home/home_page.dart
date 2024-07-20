@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todo_app_with_getx/controller/todo_controller.dart';
+import '../../controller/todo_controller.dart';
 import '../../utils/categories_list.dart';
 
 class HomePage extends StatelessWidget {

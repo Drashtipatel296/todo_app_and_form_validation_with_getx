@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todo_app_with_getx/view/splash/splash_screen.dart';
-import 'view/home/bottomnavigationbar_screen.dart';
+import 'package:todo_app_with_getx/LOGIN%20FORM/screen/login_screen.dart';
+import 'TODO APP/view/splash/splash_screen.dart';
 
 void main() {
   runApp(const TODOApp());
@@ -14,7 +14,7 @@ class TODOApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: LoginScreen(),
     );
   }
 }

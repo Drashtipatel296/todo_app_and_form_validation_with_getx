@@ -2,10 +2,9 @@ import 'package:curved_nav_bar/curved_bar/curved_action_bar.dart';
 import 'package:curved_nav_bar/fab_bar/fab_bottom_app_bar_item.dart';
 import 'package:curved_nav_bar/flutter_curved_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:todo_app_with_getx/view/home/home_page.dart';
 import '../../controller/todo_controller.dart';
+import 'home_page.dart';
 
 class BottomNavigationScreen extends StatelessWidget {
   const BottomNavigationScreen({super.key});
@@ -94,11 +93,11 @@ class BottomNavigationScreen extends StatelessWidget {
             inActiveIcon: const Icon(Icons.settings,color: Colors.grey,),
           ),
         ],
-        bodyItems: [
-          const HomePage(),
-          const FlutterLogo(),
-          const FlutterLogo(),
-          const FlutterLogo(),
+        bodyItems: const [
+          HomePage(),
+          FlutterLogo(),
+          FlutterLogo(),
+          FlutterLogo(),
         ],
       ),
     );

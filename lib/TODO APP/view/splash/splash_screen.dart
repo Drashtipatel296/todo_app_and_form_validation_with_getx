@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todo_app_with_getx/view/home/bottomnavigationbar_screen.dart';
+
+import '../home/bottomnavigationbar_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
